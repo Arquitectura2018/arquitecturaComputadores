@@ -1,6 +1,6 @@
-# TALLER ( PRIMER PARCIAL)
-# Christian Herrera
-## ARQUITECTURA DE COMPUTADORES 2018 Jornada Especial
+# ARQUITECTURA DE COMPUTADORES 2018
+## TALLER ( PRIMER PARCIAL) 
+### Christian Herrera 
 1. ¿Qué es una arquitectura de computadores?
 
 `Es el diseño, estructura, y agrupación de componentes físicos y lógicos para leer, escribir y procesar datos`
@@ -216,26 +216,132 @@ sumo 1	    -->				      1
 ```
 15. Explique las instrucciones aritmético lógicas y su sintaxis en lenguaje ensamblador.
 
+![instruccionesALU](./Imagenes/instruccionesAritmeticoLogicas.jpg "instrucciones aritmético lógicas")
+
+![instruccionesALU](./Imagenes/instruccionesAritmeticoLogicas2.jpg "instrucciones aritmético lógicas")
+
+![instruccionesALU](./Imagenes/instruccionesAritmeticoLogicas3.jpg "instrucciones aritmético lógicas")
+
 16. Explique cada uno de los campos de los 3 formatos de la arquitectura SPARC V8.
 
+```
+> rd:	     Es el registro fuente o el registro destino para una instrucciones load/store 
+             ó alguna operación aritmético-lógica.
+       
+       
+> a:         Es un bit de anulación que evita que un salto sea tomado.
+
+> cond:      Codifican la condición que se evalúa para determinar si un salto se hace o no.
+
+> imm22:     Son los 22 bits que usa la instrucción SETHI para llevarlos a los 22 bits más
+             significativos de un registro destino.
+
+> disp22 y  
+  disp30:    Valores de desplazamiento relativo dentro de la memoria de instrucciones
+ 	     utilizados por BRANCH y por las instrucción CALL.
+
+
+>op3:       Es un campo de 6 bits que ayuda a codificar todas las instrucciones de formato 3.
+
+>i:         Es un bit que ayuda a determinar si el segundo operando de una instrucción 
+            arimética-lógica, es un valor inmediato o el contenido de un registro.
+	   
+>asi:       Estos 8 bits ayudan a codificar un identificador de espacio de 
+            direccionamiento (Address Space Identifier)
+	   
+>rs1:       El primer opernando de una instruccion aritmético-lógica, Load/Store, o de corrimiento.
+
+>rs2:       Segundo operando de una instruccion si i = 1.
+
+>imm13:     Segundo operando de una instruccion si i = 0.
+
+>opf:       Codificación de operaciones de punto flotante.
+```
 17. ¿Qué diferencia hay entre el campo **op, op2 y op3**?
 
+```
+El op indica qué tipo de instrucción se va a realizar
+El op2 es una subclasificación de instrucciones y solo se usa cuando el op es 2 (formato2)
+El op3 es una subclasificación de instrucciones y solo se usa cuando el op es 3 (formato3)
+```
 18. ¿Qué es **PSR** ?, explique cada uno de sus campos.
+
+```
+Es el registro de estado de procesador con el cual controlo información importante 
+sobre el estado de las operaciones.
+Tiene 32 bits y se divide de la siguiente manera:
+```
+![PSR](./Imagenes/psr.jpg "Registro de estado de procesador")
+
+```
+> impl: 	Implementación
+
+> version: 	Vérsión
+
+>ICC: 		Esta dividido en 4 bits: n: Negativo cuando una operación da 
+		un número negativo, Z: se coloca en 1, cuando el resultado de
+		la operación da cero, v: Over Flow se activa cuando el resultado de una operación 
+		da más de 32 bits y el bit c: Carry, se activa cuando se tiene acarreo.
+		
+> reserved: 	Son un conjunto de bit no definidos dentro de la especificación de 
+		la arquitectura para que el diseñador los use de manera libre.
+
+> EC:		(Enable co-processor) Indica si el procesador tiene unidad de 
+		co-procesamiento(FPGA,Targeta gráfica, etc)
+
+> EF: 		Es un bit que me indica si la arquitectura tiene unidad de punto flotante.
+
+> PIL: 		Processor Interrupt level(la arquitectura SPARC V8 tiene iterrupciones llamadas Traps)
+
+> S: 		Supervisor; Indica el modo en el cual se ejecutó el procesador durante 
+		la instruccion anterior.
+
+> ET: 		Habilita al procesador para que soporte traps.
+
+> CWP: 		(Current Windows Pointer)Indica sobre que ventana estoy accediendo o guardando los datos.
+```
 
 19. ¿ Qué es **ICC** y **CWP**?
 
+`Está definido en el punto 18`
+
 20. ¿Qué es una instrucción sintética, de dos ejemplos?
 
+```
+Son instrucciones similares a las de la máquina pero que no existen en realidad.
+Es el compilador el que traduce cada instrucción sintética por otra equivalente a 
+partir del conjunto de instrucciones máquina. 
+Estas instrucciones existen para facilitar la programación y legibilidad de los programas.
+
+Ejemplos:
+```
+```assembly
+MOV 5, %L0     	//Por debajo está ejecutando una instrucción OR 5, %G0, %L0
+CMP %L1 , %L2   //Por debajo está ejecutando SUBicc %L1, %L2
+```
 21. ¿Qué significa el campo **a** para una instrucción BRANCH?.
+`Es un flag para definir si quiero ejecutar Delay SLOT (La instrucción siguiente) antes de hacer un salto`
 
 22. ¿Para qué la instrucción **CALL** utiliza el registro %O7?.
-
+```
+Porque ese registro almacena el PC desde donde se invocó el CALL, y necesito esa dirección de memoria como
+referencia para saber donde debo continuar una vez termina de ejecutar la función invocada
+```
 23. Convertir el siguiente programa en lenguaje de máquina a lenguaje ensamblador y luego a lenguaje de alto nivel:
+```assembly
+10100000000100000010000000000101         OR  5, %G0, %L0
+10100010000100000011111111111010         OR -6, %G0, %L1
+10010000000001000100000000010000        ADD %L1, %L0, %00
 ```
-10100000000100000010000000000101
-10100010000100000011111111111010
-10010000000001000100000000010000
+```c
+int main(){
+ int a = 5;
+ int b = -6;
+ 
+ return a + b;
+}
 ```
+
 24.Solucione el siguiente programas en lenguaje ensamblador, lenguaje de máquina y hexadecimal, además coloque su dirección de memoria.
 ```c
 int main(){
