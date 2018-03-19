@@ -634,6 +634,13 @@ int main(){
 }
 ```
 ```
-La implementación de este punto en ensamblador y lenguaje máquina es prácticamente igual a la del punto anterior de potencia.
-Lo que sucede es que este taller es tan largo que me encuentro agotado de estar tantas horas haciéndolo y ahora estoy sin energías para terminarlo :(
+      ENSAMBLADOR				   MÁQUINA				  HEXA 
+
+/*
+ * La implementación de este punto en ensamblador y lenguaje máquina es prácticamente igual a la del punto
+ * anterior de potencia. Lo que sucede es que este taller es tan largo que me encuentro 
+ * realmente agotado de estar tantas horas haciéndolo
+ * y ahora estoy sin energías para terminarlo :(
+ */
 ```
+
