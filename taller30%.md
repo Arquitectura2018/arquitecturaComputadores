@@ -396,33 +396,22 @@ else{
 //inializacion de variables
 0000  MOV 8, %L0
 0004  SETHI 4195289, %L1
-0008  OR %L1 , 560 , %L1
+0008  OR %L1, 560 , %L1
 000C  MOV 33, %L2
-0010  ADD %L0 , %L1 , %L3
-0014  SLL %L1 , 4 , %L4
-0018 cmp %L3 , %L4
-001C bg a, else
-0020 sll %L1 , 1 , %L5
-0024 add %L5 , %L0 , %L2
-0028 ba a , fin
-Else
+0010  ADD %L0, %L1, %L3
+0014  SLL %L1, 4, %L4
+0018  CMP %L3, %L4
+001C  BG a, @else
+0020  SLL %L1, 1, %L5
+0024  ADD %L5, %L0, %L2
+0028  BA, a, @finDesdeIF
+				@else
 002C sub %L1 , 78 , %O0
-0030 ba , a , refin
-Fin
+0030 ba , a , @finDesdeElse
+				@finDesdeIF
 0034 add %L0 , %L2 , %O0
-Refin
+				@finDesdeElse
 0038 Nop
-
-
-
-
-
-
-
-
-
-0000  MOV  5, %L0                       10100000000100000010000000000101                0XA0102005
-                10010000001001010000000000010000                0X90250010
 ``` 
 
 b.
