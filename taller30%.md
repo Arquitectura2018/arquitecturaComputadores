@@ -490,10 +490,8 @@ int main(){
       ENSAMBLADOR				   MÁQUINA				  HEXA 
 
 @test
-//inicializo variable
-0000 SUB %I0, %I1, %I3                 10110110001001100000000000011001                0XB6260019                                             
-
 //realizo operacion
+0000 SUB %I0, %I1, %I3                 10110110001001100000000000011001                0XB6260019  
 0004 SLL %I2, 2, %I2                   10110101001011101010000000000010                0XB52EA002
 0008 ADD %I3, %I2, %L0                 10100000000001101100000000011010                0XA006C01A
 000C ADD %L0, 2, %O0                   10010000000001000010000000000010                0X90042002              
@@ -519,7 +517,7 @@ int main(){
 27. Implemente la función **Pot** en lenguaje de alto nivel,lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la potencia de dos números enteros sin signo realizando llamados a la función multiplicacion hecha en clase.
 
 ```c
-int multiplicar (int a, int b){
+int multiplicar(int a, int b){
 	int acumulador = a;
 	int i;
 
@@ -532,7 +530,7 @@ int potencia(int x, int y){
 	int acumulador = x;
 	int i;
 	for(i=0; i < y -1; i++){
-		acumulador = multiplicacion(acumulador, x);
+		acumulador = multiplicar(acumulador, x);
 	}
 	return acumulador;
 }
@@ -546,6 +544,12 @@ int main(){
 	return potencia
 }
 ```
+```assembly
+      ENSAMBLADOR				   MÁQUINA				  HEXA 
+
+@multplicar
+//inicializo variable
+0000	MOV 0, %L4                     10110110001001100000000000011001                0XB6260019
 
 
 28. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
