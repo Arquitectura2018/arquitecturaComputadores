@@ -549,7 +549,26 @@ int main(){
 
 @multplicar
 //inicializo variable
-0000	MOV 0, %L4                     10110110001001100000000000011001                0XB6260019
+0000	MOV 0, %L4                     10101000000100000010000000000000                0XA8102000
+
+@for1
+0004	SUB %LO,1,%L5                  10101010000001000010000000000001                0XAA042001
+0008	CMP %L4, %L5                   10000000101001010000000000010101                0X80A50015
+000C	BGE, a, @endFor1               00110110100000000000000000011100                0X3680001C
+0010	ADD %O0, %L0, %O0              10010000000000100000000000010000                0X90020010
+0014	ADD %L4, 1, %L4                10101000000001010010000000000001                0XA8052001
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 28. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
