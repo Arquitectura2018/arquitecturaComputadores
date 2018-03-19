@@ -355,27 +355,23 @@ int main(){
 }
 ```
 ```assembly
-         ENSAMBLADOR				   MÁQUINA				  HEXA
+      ENSAMBLADOR				   MÁQUINA				  HEXA
+
+//inializacion de variables
 0000  MOV  5, %L0                       10100000000100000010000000000101                0XA0102005
 0004  MOV -4, %L1                       10100010000100000011111111111100                0XA2103FFC
+
+//sumas y escritura en vectores
 0008  ADD %L0,2, %L0                    10100000000001000010000000000010                0XA0042002
 000C  ST %L0, [%L2 +(5*4)]              11100100001001000010000000010100                0XE4242014
-
-
 0010  ADD %L1, 3, %L1                   10100010000001000110000000000110                0XA2043006
 0014  ST %L1, [%L3 + (4*4)]             11100110001001000110000000010000                0XE6246010
 
-
+//return
 0018  LOAD [%L2 +(5*4)], %L4            11101000000001001010000000010100                0XE804A014   
 001C  LOAD [%L3 + (4*4)], %L5           11101010000001001110000000010000                0XEA04E010
 0020  ADD %L4, %L5, %L4                 10101000000001010000000000010101                0XA8050015       
-
-
 0024 SUB %L4, %L0, %O0                  10010000001001010000000000010000                0X90250010
-
-
-
-
 ```
 
 25. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
