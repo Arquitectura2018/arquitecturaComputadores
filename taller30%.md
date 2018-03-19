@@ -521,7 +521,7 @@ int main(){
 ```c
 int multiplicar (int a, int b){
 	int acumulador = a;
-	int i = 0;
+	int i;
 
 	for(i = 0; i < b – 1; i++){
 		acumulador = acumulador + a;
@@ -530,7 +530,7 @@ int multiplicar (int a, int b){
 
 int potencia (int x, int y){
 	int acumulador = x;
-	int i = 0;
+	int i;
 	for(i=0; i < y -1; i++){
 		acumulador = multiplicacion(acumulador, x);
 	}
