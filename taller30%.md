@@ -564,10 +564,30 @@ int main(){
 
 @potencia
 //inicializo variables
+/*
+ * copio el pc del main en %06 porque mas adelante voy a hacer call a multiplicar
+ * lo cual va a sobrescribir el registro %07 y no quiero que se me pierda
+ * la referencia del main
+ */
 0020	MOV  %07, %06		       10011100000100111110000000000000                0X9C13E000
 0024	MOV %LO, %O0                   10010000000101000010000000000000                0X90142000
 0028	MOV 0, %L2                     10100100000100000010000000000000                0XA4102000
-002C	SUB %L1, 1, %L3                10100110001001000110000000000001
+002C	SUB %L1, 1, %L3                10100110001001000110000000000001                0XA6246001
+
+@for2
+0030	CMP %L2, %L3                   10000000101001001000000000010011                0X80A48013
+0034	BGE, a, @endFor2               00110110100000000000000001001000                0X36800048
+0038	CALL @multiplicar              01000000000000000000000000000000                0X40000000
+003C	NOP			       00000001000000000000000000000000                0X1000000
+0040	ADD %L2, 1, %L2                10100100000001001010000000000001
+
+
+
+ 
+
+
+
+
 
 
 
