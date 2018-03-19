@@ -375,6 +375,7 @@ int main(){
 ```
 
 25. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
+
 a.
  ```c
  int main(){
@@ -415,7 +416,7 @@ else{
 0030 ba , a , @finDesdeElse              00110000100000000000000000111000		0X30800038               
 
 @finDesdeIF
-0034 add %L0 , %L2 , %O0		 10010000000001000000000000010010               0x90040012
+0034 add %L0 , %L2 , %O0		 10010000000001000000000000010010               0X90040012
 
 @finDesdeElse
 0038 Nop                                 00000001000000000000000000000000               0X1000000
