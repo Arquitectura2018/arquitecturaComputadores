@@ -354,6 +354,20 @@ int main(){
 	return c[5] + d[4] -i
 }
 ```
+```assembly
+0000  MOV  5, %L0
+0004  MOV -4, %L1
+0008  ADD %L0,2, %L0
+000C  ST %L0, [%L2 +(5*4)]
+0010  ADD %L1, 3, %L1                          
+0014  ST %L1, [%L3 + (4*4)]
+0018  LOAD [%L2 +(5*4)], %L4
+001C  LOAD [%L3 + (4*4)], %L5
+0020  ADD %L4, %L5, %L4
+0024 SUB %L4, %L0, %O0
+
+
+```
 
 25. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
 a.
