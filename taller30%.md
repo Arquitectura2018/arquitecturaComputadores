@@ -458,8 +458,6 @@ int main(){
 @fin
 001C NOP                               00000001000000000000000000000000                0X1000000
 ```
-
-
 c.
  ```c
 int main(){
@@ -473,8 +471,6 @@ int main(){
 0000 SETHI  2097131, %L0               00100001001111111111111111101011                0X213FFFEB
 0004 OR %L0, 324, %L0                  10100000000101000010000101000100                0XA0142144                   
 ```
-
-
 
 26. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
  ```c
@@ -490,6 +486,24 @@ int main(){
 	return x + 45;
 }
  ```
+  ```assembly
+      ENSAMBLADOR				   MÁQUINA				  HEXA 
+
+//         
+0000 SUB %I0, %I1, %I3                 10110110001001100000000000011001                0XB6260019                                             
+0004 SLL %I2, 2, %I2                   10110101001011101010000000000010                0XB52EA002
+0008 ADD %I3, %I2, %L0                 10100000000001101100000000011010                0XA006C01A
+000C ADD %L0, 2, %O0                   10010000000001000010000000000010                0X90042002              
+0010 JMPL %07, 8, %G0
+0014 NOP 
+0018 MOV 4, %I0
+001C MOV 2, %I1
+0020 SETHI, 4194288, $I2
+0024 OR %I2, 784, %I2
+0028 CALL TEST
+002C NOP
+0030 ADD %IO, 45, %O0                 
+```
 
 27. Implemente la función **Pot** en lenguaje de alto nivel,lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la potencia de dos números enteros sin signo realizando llamados a la función multiplicacion hecha en clase.
 
