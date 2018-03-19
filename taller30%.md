@@ -528,7 +528,7 @@ int multiplicar (int a, int b){
 	}
 	return acumulador;
 
-int potencia (int x, int y){
+int potencia(int x, int y){
 	int acumulador = x;
 	int i;
 	for(i=0; i < y -1; i++){
