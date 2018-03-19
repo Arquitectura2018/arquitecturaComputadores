@@ -359,7 +359,7 @@ int main(){
 ```assembly
       ENSAMBLADOR				   MÁQUINA				  HEXA
 
-//inializacion de variables
+//inicializo variables
 0000  MOV  5, %L0                       10100000000100000010000000000101                0XA0102005
 0004  MOV -4, %L1                       10100010000100000011111111111100                0XA2103FFC
 
