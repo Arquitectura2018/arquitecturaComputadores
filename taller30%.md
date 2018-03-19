@@ -396,18 +396,19 @@ else{
       ENSAMBLADOR				   MÁQUINA				  HEXA
 
 //inicializo variables
+
 0000  MOV 8, %L0                         10100000000100000010000000001000               0XA0102008          
 0004  SETHI 4195289, %L1                 00100011001111111111111111110001               0X233FFFF1
 0008  OR %L1, 560 , %L1                  10100010000101000110001000110000               0XA2146230
 000C  MOV 33, %L2                        10100100000100000010000000100001               0XA4102021          
 
-//Calculo la condicion del if
+//evaluo el if
 0010  ADD %L0, %L1, %L3                  10100110000001000000000000010001               0XA6040011
 0014  SLL %L1, 4, %L4                    10101001001011000110000000000100               0XA92C6004              
 0018  CMP %L3, %L4                       10000000101001001100000000010100               0X80A4C014        
 001C  BG a, @else                        00110100100000000000000000101100               0X3480002C               
 
-//Cuando se cumple if
+//cuando se cumple if
 0020  SLL %L1, 1, %L5                    10101011001011000110000000000001               0XAB2C6001
 0024  ADD %L5, %L0, %L2                  10100100000001010100000000010000               0XA4054010
 0028  BA, a, @finDesdeIF		 00110000100000000000000000110100               0X30800034
@@ -438,6 +439,7 @@ int main(){
 ```
  ```assembly
       ENSAMBLADOR				   MÁQUINA				  HEXA 
+
 //inicializo variables
 0000 MOV 8, %L0                        10100000000100000010000000001000                0XA0102008               
 0004 MOV -10, %L1                      10100010000100000011111111110110                0XA2103FF6
@@ -459,12 +461,20 @@ int main(){
 
 
 c.
-
  ```c
 int main(){
 	int a = -21180;
 }
 ```
+ ```assembly
+      ENSAMBLADOR				   MÁQUINA				  HEXA 
+
+//inicializo la variable          
+0000 SETHI  2097131, %L0               00100001001111111111111111101011                0X213FFFEB
+0004 OR %L0, 324, %L0                  10100000000101000010000101000100                0XA0142144                   
+```
+
+
 
 26. Convierta el siguiente código a lenguaje ensamblador, máquina **SPARC V8** y hexadecimal.
  ```c
