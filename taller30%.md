@@ -518,4 +518,34 @@ int main(){
 
 27. Implemente la función **Pot** en lenguaje de alto nivel,lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que realice la potencia de dos números enteros sin signo realizando llamados a la función multiplicacion hecha en clase.
 
+```c
+int multiplicar (int a, int b){
+	int acumulador = a;
+	int i = 0;
+
+	for(i = 0; i < b – 1; i++){
+		acumulador = acumulador + a;
+	}
+	return acumulador;
+
+int potencia (int x, int y){
+	int acumulador = x;
+	int i = 0;
+	for(i=0; i < y -1; i++){
+		acumulador = multiplicacion(acumulador, x);
+	}
+	return acumulador;
+}
+
+int main(){
+	int a = 2;
+	int b = 5;
+	int c;
+	
+	c = potencia(a,b);
+	return potencia
+}
+```
+
+
 28. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
