@@ -67,15 +67,16 @@ MISD -  Multiple Instruction Single Data. No es una arquitectura típica
 
 4. Nombre las clases de aplicaciones de cómputo.
 ```
-	> Equipos de escritorio (PC’s)
+> Equipos de escritorio (PC’s)
 
-	> Equipos servidores. (Utilizados para almacenar bases de datos y a los cuales acceden muchos usuarios)
+> Equipos servidores. (Utilizados para almacenar bases de datos y a los cuales acceden 
+	  muchos usuarios)
 	  
-	> Tablets - dispositivos móviles
+> Tablets - dispositivos móviles
 
-	> Wearables
+> Wearables
 
-	> Supercomputadores - HPC (High Performance Computing) - GPU : CPU (Sistemas heterogeneos)
+> Supercomputadores - HPC (High Performance Computing) - GPU : CPU (Sistemas heterogeneos)
 ```
 
 5. Muestre la clasificación de la jerarquía de un equipo de cómputo.
@@ -83,31 +84,135 @@ MISD -  Multiple Instruction Single Data. No es una arquitectura típica
       ![jerarquía](./Imagenes/jerarquia.jpg "Jerarquía de un equipo de cómputo")
 
 6. ¿Qué es un compilador?
-```Es un software que verifica si un progrma de alto nivel está bien escrito y si este es el caso,
-   traduce ese programa a lenguaje ensamblador y luego a lenguaje máquina"
-```
 
+``` 
+Es un software que verifica si "un programa de alto nivel" está bien escrito y si este es el caso,
+traduce ese programa a lenguaje ensamblador
+```
 7. ¿ Defina qué es una instrucción?
+
+`Son las operaciones que puede realizar el procesador`
+
 
 8. ¿Cuales son los principios básicos de diseño de hardware de una arquitectura de cómputo, escriba una definición de cada uno?
 
+```
+* La simplicidad favorece la regularidad:
+
+	>>>> Hacer diseños simples para garantizar que el procesador funcione bien siempre
+
+* Pequeño es más rápido:
+
+	>>>> Hacer nuestros programas con la menor cantidad de recursos posibles para 
+	     que se ejecuten más rápido
+
+* Hacer el caso común más rápido:
+
+	>>>> Al realizar un diseño favorecer el caso frecuente sobre el infrecuente
+
+*Buenos diseños implican grandes compromisos
+```
+
+
 9. ¿Qué es SPARCV8?
+
+```
+Es un arquitectura de computadores de 32 bits creada por Sun MicroSystems en 1985 
+diseñada principalmente para optimizar compiladores
+```
 
 10. ¿Cuáles son las categorías de instrucciones de la arquitectura SPARCV8?
 
+![instrucciones](./Imagenes/categoriasInstrucciones.jpg "Categorías de instrucciones")
+
+```
+> Load/Store (carga / almacenamiento)
+
+> Aritmético-lógicas
+
+> CTI(Control Transfer Instruction - Instrucciones de control de tranferencia )
+
+> Acceso a registros de estado
+
+> Instrucciones de unidad de punto flotante
+
+>Intrucciones de co-procesador
+```
+
 11. ¿Que tipos de registros se encuentran en SPARC V8?
+
+![tiposRegistros](./Imagenes/tiposRegistros.jpg "tipos de registros")
+
+```
+> Registros de Entrada:   8 registros de propósito general. Por estándar se sugiere que sean 
+			  usados para recibir parámetros.
+
+> Registros de Salida:    8 registros de propósito general. Por estándar se sugiere que sean 
+                          usados para retornar valores.
+			  
+> Registros Locales:      8 registros de propósito general. Por estándar se sugiere que sean 
+			  usados para definir variables dentro de una función.
+			  
+> Registros Globales: 	  8 registros de propósito general. Por estándar se sugiere que sean
+			  usados para almacenar variables globales
+```
 
 12. ¿ Cuál es el número mínimo y máximo de registros que se puede implementar en la arquitectura SPARCV8?
 
+`mínimo 32 y máximo 520`
+
 13. ¿ Cuáles son las instrucciones de acceso a memoria de SPARCV8? de un ejemplo de cada uno.
 
-14. Represente los siguientes números en complemento a 2.
+`LOAD : Carga un dato de memoria en un registro`
+```assembly
+
+Load [%L0 + (30*4)], %L1  	  //Cargo en el registro L1 el valor de la posición 30 del 
+				  //vector cuya dirección de memoria se encuentra en L0
 ```
-	a.5
-	b.12890
-	c.56900
-	d.11
-	e.140
+`STORE: Escribe un dato en memoria`
+```assembly	
+St %L1, [%O0 + (300*4)]           //Almaceno el valor que contiene L1 en la posición 300 del
+				 //vector cuya dirección de memoria se encuentra en O0
+```
+
+14. Represente los siguientes números en complemento a 2.
+```c
+a.5
+
+en 32 bits  --> 0000000000000000000000000000101
+lo invierto --> 1111111111111111111111111111010
+sumo 1	    -->				      1
+-----------------------------------------------
+-5          --> 1111111111111111111111111111011
+
+b.12890
+
+en 32 bits  --> 0000000000000000011001001011010
+lo invierto --> 1111111111111111100110110100101
+sumo 1	    -->				      1
+-----------------------------------------------
+-12890      --> 1111111111111111100110110100110
+
+c.56900
+en 32 bits  --> 0000000000000001101111001000100
+lo invierto --> 1111111111111110010000110111011
+sumo 1	    -->				      1
+-----------------------------------------------
+-12890      --> 1111111111111110010000110111100
+
+d.11
+en 32 bits  --> 0000000000000000000000000001011
+lo invierto --> 1111111111111111111111111110100
+sumo 1	    -->				      1
+-----------------------------------------------
+-11         --> 1111111111111111111111111110101
+
+e.140
+en 32 bits  --> 0000000000000000000000010001100
+lo invierto --> 1111111111111111111111101110011
+sumo 1	    -->				      1
+-----------------------------------------------
+-11         --> 1111111111111111111111101110100
 ```
 15. Explique las instrucciones aritmético lógicas y su sintaxis en lenguaje ensamblador.
 
