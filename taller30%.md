@@ -321,6 +321,7 @@ MOV 5, %L0     	//Por debajo está ejecutando una instrucción OR 5, %G0, %L0
 CMP %L1 , %L2   //Por debajo está ejecutando SUBicc %L1, %L2
 ```
 21. ¿Qué significa el campo **a** para una instrucción BRANCH?.
+
 `Es un flag para definir si quiero ejecutar Delay SLOT (La instrucción siguiente) antes de hacer un salto`
 
 22. ¿Para qué la instrucción **CALL** utiliza el registro %O7?.
