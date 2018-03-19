@@ -397,14 +397,14 @@ else{
 
 //inicializo variables
 
-0000  MOV 8, %L0                         10100000000100000010000000001000               0XA0102008          
+0000  MOV 8, %L0                         10100000000100000010000000001000               0XA0102008         
 0004  SETHI 4195289, %L1                 00100011001111111111111111110001               0X233FFFF1
 0008  OR %L1, 560 , %L1                  10100010000101000110001000110000               0XA2146230
 000C  MOV 33, %L2                        10100100000100000010000000100001               0XA4102021          
 
 //evaluo el if
 0010  ADD %L0, %L1, %L3                  10100110000001000000000000010001               0XA6040011
-0014  SLL %L1, 4, %L4                    10101001001011000110000000000100               0XA92C6004              
+0014  SLL %L1, 4, %L4                    10101001001011000110000000000100               0XA92C6004  
 0018  CMP %L3, %L4                       10000000101001001100000000010100               0X80A4C014        
 001C  BG a, @else                        00110100100000000000000000101100               0X3480002C               
 
@@ -487,7 +487,7 @@ int main(){
 }
  ```
   ```assembly
-      ENSAMBLADOR				   MÁQUINA				  HEXA 
+      ENSAMBLADOR				   MÁQUINA				    HEXA 
 
 @test
 //realizo operacion
@@ -632,4 +632,7 @@ int main(){
 	return b;
 }
 ```
-
+```
+La implementación de este punto en ensamblador y lenguaje máquina es prácticamente igual a la del punto anterior de potencia.
+Lo que sucede es que este taller es tan largo que me encuentro agotado de estar tantas horas haciéndolo y ahora estoy sin energías para terminarlo :(
+```
