@@ -435,6 +435,26 @@ int main(){
 	}
 }
 ```
+ ```assembly
+      ENSAMBLADOR				   MÁQUINA				  HEXA 
+0000 MOV 8, %L0                        101000000001000000100000000001000               0X140204008
+               
+
+0004 MOV -10, %L1
+0008 CMP %L0, %L1
+000C BE, A, @else
+0010 SRL, %L2,4 %O0
+0014 BA, A, @fin
+@else
+0018 SLL %L1, 5, %O0
+@fin
+001C NOP
+ 
+ 
+ 
+ ```
+
+
 c.
 
  ```c
