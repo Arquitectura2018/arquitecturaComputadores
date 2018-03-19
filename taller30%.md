@@ -541,7 +541,7 @@ int main(){
 	int c;
 	
 	c = potencia(a,b);
-	return potencia
+	return c;
 }
 ```
 ```assembly
@@ -604,47 +604,32 @@ int main(){
 0054	CALL @potencia                 01000000000000000000000000100000                0X40000020
 0058	NOP			       00000001000000000000000000000000                0X1000000
 ```
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 28. Implemente una función **Fact** en lenguaje de alto nivel, lenguaje ensamblador **SPARC V8** y lenguaje de máquina SPARC V8 que calcule el factorial de un número entero sin signo.
+```c
+int multiplicar(int a, int b){
+	int acumulador = a;
+	int i;
+
+	for(i = 0; i < b – 1; i++){
+		acumulador = acumulador + a;
+	}
+	return acumulador;
+
+int factorial(int x, int y){
+	int acumulador = 1;
+	int i;
+	for(i=n; i >1; i--){
+		acumulador = multiplicar(acumulador, i);
+	}
+	return acumulador;
+}
+
+int main(){
+	int a = 4;
+	int b;
+	
+	b = factorial(a);
+	return b;
+}
+```
+
