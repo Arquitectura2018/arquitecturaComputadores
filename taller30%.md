@@ -355,7 +355,9 @@ int main(){
 }
 ```
 ```assembly
-0000  MOV  5, %L0
+         ENSAMBLADOR				   MÁQUINA				  HEXA
+0000  MOV  5, %L0                       10100000000100000010000000000101                0XA0102005
+
 0004  MOV -4, %L1
 0008  ADD %L0,2, %L0
 000C  ST %L0, [%L2 +(5*4)]
