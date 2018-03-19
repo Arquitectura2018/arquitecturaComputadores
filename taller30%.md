@@ -312,9 +312,10 @@ Son instrucciones similares a las de la máquina pero que no existen en realidad
 Es el compilador el que traduce cada instrucción sintética por otra equivalente a 
 partir del conjunto de instrucciones máquina. 
 Estas instrucciones existen para facilitar la programación y legibilidad de los programas.
+```
 
 Ejemplos:
-```
+
 ```assembly
 MOV 5, %L0     	//Por debajo está ejecutando una instrucción OR 5, %G0, %L0
 CMP %L1 , %L2   //Por debajo está ejecutando SUBicc %L1, %L2
